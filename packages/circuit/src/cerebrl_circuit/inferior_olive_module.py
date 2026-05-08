@@ -60,9 +60,14 @@ class InferiorOliveModule:
         dcn_inhibitory_rate_hz: float = 0.0,
         duration_ms: float = 1000.0,
     ) -> InferiorOliveOutput:
-        error_drive = min(4.0, abs(reward_prediction_error) * 3.0)
         feedback = max(0.0, dcn_inhibitory_rate_hz) * 0.025
-        firing_rate = max(0.05, min(8.0, 1.0 + error_drive - feedback))
+        if reward_prediction_error > 0.0:
+            error_drive = min(4.0, reward_prediction_error * 3.0)
+            firing_rate = max(0.05, min(8.0, 1.0 + error_drive - feedback))
+        elif reward_prediction_error < 0.0:
+            firing_rate = 0.0
+        else:
+            firing_rate = max(0.05, 1.0 - feedback)
         oscillation = self.oscillate(duration_ms=duration_ms)
         return InferiorOliveOutput(
             firing_rate_hz=firing_rate,

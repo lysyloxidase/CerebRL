@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  neurons:
+  python-packages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,14 +16,31 @@ jobs:
       - name: Install package and tooling
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e packages/neurons pytest ruff pyright
-      - name: Ruff
+          python -m pip install -e packages/neurons -e packages/rl -e packages/circuit pytest ruff pyright
+      - name: Ruff neurons
         working-directory: packages/neurons
         run: ruff check .
-      - name: Pyright strict
+      - name: Pyright neurons
         working-directory: packages/neurons
         run: pyright
-      - name: Pytest
+      - name: Pytest neurons
         working-directory: packages/neurons
         run: pytest
-
+      - name: Ruff RL
+        working-directory: packages/rl
+        run: ruff check .
+      - name: Pyright RL
+        working-directory: packages/rl
+        run: pyright
+      - name: Pytest RL
+        working-directory: packages/rl
+        run: pytest
+      - name: Ruff circuit
+        working-directory: packages/circuit
+        run: ruff check .
+      - name: Pyright circuit
+        working-directory: packages/circuit
+        run: pyright
+      - name: Pytest circuit
+        working-directory: packages/circuit
+        run: pytest

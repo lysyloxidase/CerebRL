@@ -9,6 +9,25 @@ description = "Hybrid RL algorithms for CerebRL"
 requires-python = ">=3.11"
 dependencies = []
 
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.4", "pyright>=1.1"]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/cerebrl_rl"]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ANN", "RUF"]
+
+[tool.pyright]
+include = ["src", "tests"]
+typeCheckingMode = "strict"
+pythonVersion = "3.11"
