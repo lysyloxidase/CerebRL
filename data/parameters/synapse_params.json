@@ -1,0 +1,7 @@
+{
+  "AMPA": { "tau_rise_ms": 0.2, "tau_decay_ms": 2.0, "reversal_mV": 0.0 },
+  "NMDA": { "tau_rise_ms": 2.0, "tau_decay_ms": 80.0, "reversal_mV": 0.0 },
+  "GABA_A": { "tau_rise_ms": 0.5, "tau_decay_ms": 10.0, "reversal_mV": -75.0 },
+  "GABA_B": { "tau_rise_ms": 10.0, "tau_decay_ms": 120.0, "reversal_mV": -95.0 }
+}
+

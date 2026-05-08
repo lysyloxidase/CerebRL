@@ -1,0 +1,9 @@
+{
+  "MF_to_GrC": { "inputs_per_GrC": [4, 5] },
+  "GrC_to_PC_via_PF": { "synapses_per_PC": 175000 },
+  "CF_to_PC": { "ratio": "1:1" },
+  "PC_to_DCN": { "type": "inhibitory_GABA" },
+  "DCN_to_VL": { "type": "excitatory_glutamate" },
+  "VL_to_M1": { "target": "layer_5_pyramidal" }
+}
+

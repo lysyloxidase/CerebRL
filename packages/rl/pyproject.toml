@@ -1,0 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cerebrl-rl"
+version = "0.1.0"
+description = "Hybrid RL algorithms for CerebRL"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cerebrl_rl"]
+

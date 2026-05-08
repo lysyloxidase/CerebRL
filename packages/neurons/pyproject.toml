@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cerebrl-neurons"
+version = "0.1.0"
+description = "Biophysical cell models for the CerebRL cerebello-cortical loop"
+readme = "../../README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "CerebRL contributors" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.4", "pyright>=1.1"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cerebrl_neurons"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ANN", "RUF"]
+
+[tool.pyright]
+include = ["src", "tests"]
+typeCheckingMode = "strict"
+pythonVersion = "3.11"

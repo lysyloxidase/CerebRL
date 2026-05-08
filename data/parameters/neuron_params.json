@@ -1,0 +1,18 @@
+{
+  "source": "packages/neurons/src/cerebrl_neurons/params.py",
+  "phase": 1,
+  "cell_types": [
+    "purkinje",
+    "granule",
+    "golgi",
+    "stellate_basket",
+    "ubc",
+    "dcn_projection",
+    "dcn_inhibitory",
+    "inferior_olive",
+    "m1_layer5_pyramidal",
+    "pontine_relay",
+    "vl_thalamic_relay"
+  ]
+}
+

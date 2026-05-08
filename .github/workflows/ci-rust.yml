@@ -1,0 +1,17 @@
+name: Rust
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  kernels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Cargo test
+        working-directory: packages/kernels_rs
+        run: cargo test
+

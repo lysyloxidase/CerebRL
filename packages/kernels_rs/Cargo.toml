@@ -1,0 +1,10 @@
+[package]
+name = "cerebrl-kernels"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[lib]
+name = "cerebrl_kernels"
+path = "src/lib.rs"
+

@@ -1,0 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cerebrl-circuit"
+version = "0.1.0"
+description = "Cerebellar microzone and cerebello-cortical loop assemblies"
+requires-python = ">=3.11"
+dependencies = ["cerebrl-neurons"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cerebrl_circuit"]
+
