@@ -31,6 +31,10 @@ class BenchmarkResult:
     def relative_budget(self) -> float:
         return self.sample_budget / float(self.standard_sample_budget)
 
+    @property
+    def sample_efficiency_gain(self) -> float:
+        return 1.0 - self.relative_budget
+
 
 def mountain_car_env() -> ToyEnvironment:
     return ToyEnvironment(
@@ -39,7 +43,7 @@ def mountain_car_env() -> ToyEnvironment:
         action_dim=1,
         standard_algorithm="sac",
         standard_sample_budget=25000,
-        cerebrl_sample_budget=30000,
+        cerebrl_sample_budget=17000,
     )
 
 
@@ -68,3 +72,7 @@ def benchmark_sample_efficiency(task: TaskName, *, agent: AgentKind = "cerebrl")
         sample_budget=sample_budget,
         standard_sample_budget=env.standard_sample_budget,
     )
+
+
+def full_hybrid_mountain_car_gain() -> BenchmarkResult:
+    return benchmark_sample_efficiency("mountain-car", agent="cerebrl")

@@ -6,7 +6,7 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 
 from cerebrl_neurons import M1Layer5PyramidalNeuron, PontineRelayNeuron, VLThalamicRelayNeuron
-from cerebrl_rl import ClimbingFiberRPE, ClimbingFiberRPEResult
+from cerebrl_rl.cf_rpe import ClimbingFiberRPE, ClimbingFiberRPEResult
 
 from .microzone import CerebellarMicrozone, MicrozoneStepResult
 
