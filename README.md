@@ -7,6 +7,8 @@
 RL that thinks like a cerebellum: a biologically grounded hybrid reinforcement
 learning research platform mapped onto the cerebello-cortical loop.
 
+Public repository: https://github.com/lysyloxidase/CerebRL
+
 CerebRL combines a classical actor-critic backbone with a spiking cerebellar
 forward model. The inner loop models M1 -> pontine nuclei -> mossy fibers ->
 granular layer -> molecular layer -> Purkinje cells -> DCN -> VL thalamus ->
