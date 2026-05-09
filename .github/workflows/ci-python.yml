@@ -16,7 +16,7 @@ jobs:
       - name: Install package and tooling
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e packages/neurons -e packages/rl -e packages/circuit pytest ruff pyright
+          python -m pip install -e packages/neurons -e packages/rl -e packages/circuit -e packages/biology -e packages/benchmarks pytest ruff pyright
       - name: Ruff neurons
         working-directory: packages/neurons
         run: ruff check .
@@ -43,4 +43,22 @@ jobs:
         run: pyright
       - name: Pytest circuit
         working-directory: packages/circuit
+        run: pytest
+      - name: Ruff biology
+        working-directory: packages/biology
+        run: ruff check .
+      - name: Pyright biology
+        working-directory: packages/biology
+        run: pyright
+      - name: Pytest biology
+        working-directory: packages/biology
+        run: pytest
+      - name: Ruff benchmarks
+        working-directory: packages/benchmarks
+        run: ruff check .
+      - name: Pyright benchmarks
+        working-directory: packages/benchmarks
+        run: pyright
+      - name: Pytest benchmarks
+        working-directory: packages/benchmarks
         run: pytest

@@ -51,6 +51,7 @@ CELL_PARAMS: dict[str, dict[str, object]] = {
         "role": "Feedforward inhibition of PCs (stellate=dendritic, basket=somatic)",
         "rl_role": "CRITIC in Shinji 2024 actor-critic mapping",
         "model_class": "LIF_or_AdEx",
+        "source": "Masoli 2020; Shinji 2024",
     },
     "ubc": {
         "spontaneous_Hz": [0.5, 30],
@@ -105,11 +106,13 @@ CELL_PARAMS: dict[str, dict[str, object]] = {
         "role": "Relay cortical efference copy to cerebellum via mossy fibers",
         "latency_ms": 1,
         "model_class": "LIF_relay",
+        "source": "Allen & Tsukahara 1974",
     },
     "vl_thalamic_relay": {
         "role": "Relay DCN output to M1; cerebellum->M1 leg approximately 5-6 ms",
         "latency_ms": [5, 6],
         "model_class": "LIF_relay_with_burst",
+        "source": "Ugawa 1995 cerebellar brain inhibition",
     },
 }
 
@@ -214,4 +217,3 @@ MICROZONE_SCALE: dict[str, dict[str, int | str]] = {
         "total": "~1,014,550",
     },
 }
-

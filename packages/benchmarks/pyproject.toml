@@ -7,8 +7,28 @@ name = "cerebrl-bench"
 version = "0.1.0"
 description = "Benchmarks for CerebRL"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["cerebrl-rl", "cerebrl-bio"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.4", "pyright>=1.1"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/cerebrl_bench"]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ANN", "RUF"]
+
+[tool.pyright]
+include = ["src", "tests"]
+extraPaths = ["src", "../rl/src", "../biology/src", "../circuit/src", "../neurons/src"]
+typeCheckingMode = "strict"
+pythonVersion = "3.11"

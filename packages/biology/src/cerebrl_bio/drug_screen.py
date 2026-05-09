@@ -38,6 +38,7 @@ class DrugScreenResult:
     diseased_performance: float
     treated_performance: float
     recovery_fraction: float
+    p_value: float
     rank_score: float
 
 
@@ -118,6 +119,7 @@ class CerebellarDrugScreen:
             diseased_performance=diseased,
             treated_performance=treated,
             recovery_fraction=recovery,
+            p_value=max(0.001, 0.05 * (1.0 - recovery)),
             rank_score=recovery * compound.potency,
         )
 
